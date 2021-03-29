@@ -6,8 +6,9 @@ import Articles from '../components/articles'
 
 
 
+
 export async function getStaticProps() {
-  const allPostsData = await fetch(`http://localhost:1337/articles`)
+  const allPostsData = await fetch(`${database}/articles`)
   const posts = await allPostsData.json()
   return {
     props:
@@ -27,14 +28,6 @@ export default function Home({ data }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
 
         <div className={styles.grid}>
           <Articles articles={data} />
