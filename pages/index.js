@@ -8,7 +8,7 @@ import Articles from '../components/articles'
 
 
 export async function getStaticProps() {
-  const allPostsData = await fetch(`${database}/articles`)
+  const allPostsData = await fetch(`https://naald-app.herokuapp.com/articles`)
   const posts = await allPostsData.json()
   return {
     props:
